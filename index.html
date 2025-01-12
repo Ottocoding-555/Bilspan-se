@@ -1,0 +1,186 @@
+<!Doctype html>
+<html lang="sv">
+<head>
+    <title>Bilspan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top nav bar-->
+    <div id="topnavbar" class="topnav">
+        <a href="index.html"><img src="/Images/logo.png" id="logo" alt="Logo" height="35"/></a>
+        <a href="index.html">Bilspan</a>
+        <a href="bilmodeller.html">Bilmodeller</a>
+        <a href="">Köpa</a>
+        <a href="">Sälja</a>
+    </div>
+
+<!-- This sections is a form for finding a good car specific to the customers needs-->
+<section>
+    <fieldset>
+        <legend>Biltestet</legend>
+        <p>Svara på frågorna och se vilka bilmodeller som passar dig!</p><br>
+        <!-- Progress bar -->
+        <div id="progressBarContainer">
+            <div id="progressBar"></div>
+        </div>
+        
+        <!-- Form for product "my perfect car"-->
+        <form id="carForm">
+            <div id="part1" class="formPart active">
+                <h1>Kärnbehov</h1>
+                <div class="question">
+                    <h4>Primärt användningsområde?</h4>
+                    <input type="radio" name="primary_use" id="pendling" value="pendling"><label for="pendling">Pendling</label><br>
+                    <input type="radio" name="primary_use" id="familjebil" value="familjebil"><label for="familjebil">Familjebil</label><br>
+                    <input type="radio" name="primary_use" id="sport" value="sport"><label for="sport">Sportbil</label><br>
+                    <input type="radio" name="primary_use" id="aventyr" value="aventyr"><label for="aventyr">Äventyr / off-road</label>
+                </div>
+                <div class="question">
+                    <h4>Antal passagerare?</h4>
+                    <input type="radio" name="passengers" id="passengers1-2" value="1-2"><label for="passengers1-2">1 - 2</label><br>
+                    <input type="radio" name="passengers" id="passengers3-4" value="3-4"><label for="passengers3-4">3 - 4</label><br>
+                    <input type="radio" name="passengers" id="passengers5+" value="5+"><label for="passengers5+">5+</label>
+                </div>
+                <div class="question">
+                    <h4>Budget?</h4>
+                    <input type="radio" name="budget" id="budgetUnder200" value="under200"><label for="budgetUnder200">Under 200 000 kr</label><br>
+                    <input type="radio" name="budget" id="budget200-350" value="200-350"><label for="budget200-350">200 000 - 350 000 kr</label><br>
+                    <input type="radio" name="budget" id="budget350-500" value="350-500"><label for="budget350-500">350 000 - 500 000 kr</label><br>
+                    <input type="radio" name="budget" id="budgetOver500" value="over500"><label for="budgetOver500">Över 500 000 kr</label>
+                </div>
+                <button type="button" onclick="nextPart(0)">Nästa</button>
+            </div>
+            
+            <div id="part2" class="formPart">
+                <h1>Förvärvsdetaljer</h1>
+                <div class="question">
+                    <h4>Ny eller begagnad?</h4>
+                    <input type="radio" name="car_type" id="carTypeNy" value="ny"><label for="carTypeNy">Ny</label><br>
+                    <input type="radio" name="car_type" id="carTypeBegagnad" value="begagnad"><label for="carTypeBegagnad">Begagnad</label><br>
+                </div>
+                <div class="question">
+                    <h4>Hur länge planerar du att äga bilen?</h4>
+                    <input type="radio" name="ownership_duration" id="ownershipMindre3" value="mindre3"><label for="ownershipMindre3">Mindre än 3 år</label><br>
+                    <input type="radio" name="ownership_duration" id="ownership3-5" value="3-5"><label for="ownership3-5">3 - 5 år</label><br>
+                    <input type="radio" name="ownership_duration" id="ownershipMer5" value="mer5"><label for="ownershipMer5">Mer än 5 år</label>
+                </div>
+                <div class="question">
+                    <h4>Finansieringsmetod?</h4>
+                    <input type="radio" name="financing" id="financingKontant" value="kontant"><label for="financingKontant">Kontant</label><br>
+                    <input type="radio" name="financing" id="financingLån" value="lån"><label for="financingLån">Lån</label><br>
+                    <input type="radio" name="financing" id="financingLeasing" value="leasing"><label for="financingLeasing">Leasing</label>
+                </div>
+                <button type="button" onclick="prevPart(1)">Tillbaka</button>
+                <button type="button" onclick="nextPart(1)">Nästa</button>
+            </div>
+            
+            <div id="part3" class="formPart">
+                <h1>Operativa överväganden</h1>
+                <div class="question">
+                    <h4>Bränsleeffektivitet?</h4>
+                    <input type="radio" name="fuel_efficiency" id="fuelMycket" value="mycket"><label for="fuelMycket">Mycket viktigt</label><br>
+                    <input type="radio" name="fuel_efficiency" id="fuelNågot" value="något"><label for="fuelNågot">Något viktigt</label><br>
+                    <input type="radio" name="fuel_efficiency" id="fuelInte" value="inte"><label for="fuelInte">Inte viktigt</label>
+                </div>
+                <div class="question">
+                    <h4>Körförhållanden?</h4>
+                    <input type="radio" name="driving_conditions" id="conditionStad" value="stad"><label for="conditionStad">Stad</label><br>
+                    <input type="radio" name="driving_conditions" id="conditionMotorväg" value="motorväg"><label for="conditionMotorväg">Motorväg</label><br>
+                    <input type="radio" name="driving_conditions" id="conditionTerräng" value="terräng"><label for="conditionTerräng">Grov terräng/off-road</label>
+                </div>
+                <div class="question">
+                    <h4>Intresse för el / hybrid?</h4>
+                    <input type="radio" name="electric_interest" id="electricEndast" value="endast_el"><label for="electricEndast">Ja, endast el</label><br>
+                    <input type="radio" name="electric_interest" id="electricHybrid" value="hybrid_el"><label for="electricHybrid">Ja, hybrid eller el</label><br>
+                    <input type="radio" name="electric_interest" id="electricTraditionella" value="traditionella"><label for="electricTraditionella">Nej, föredrar traditionell motor</label>
+                </div>
+                <button type="button" onclick="prevPart(2)">Tillbaka</button>
+                <button type="button" onclick="nextPart(2)">Nästa</button>
+            </div>
+            
+            <div id="part4" class="formPart">
+                <h1>Märke och pålitlighet</h1>
+                <div class="question">
+                    <h4>Märkets pålitlighet / rykte?</h4>
+                    <input type="radio" name="brand_reputation" id="reputationPålitlighet" value="pålitlighet"><label for="reputationPålitlighet">Pålitlighet och säkerhet</label><br>
+                    <input type="radio" name="brand_reputation" id="reputationLyx" value="lyx"><label for="reputationLyx">Lyx och prestanda</label><br>
+                    <input type="radio" name="brand_reputation" id="reputationVärde" value="värde"><label for="reputationVärde">Värde för pengarna</label><br>
+                </div>
+                <div class="question">
+                    <h4>Preferens av märke?</h4>
+                    <input type="radio" name="brand_preference" id="preferenceTesla" value="tesla"><label for="preferenceTesla">Tesla</label><br>
+                    <input type="radio" name="brand_preference" id="preferenceVolvo" value="volvo"><label for="preferenceVolvo">Volvo</label><br>
+                    <input type="radio" name="brand_preference" id="preferenceKia" value="kia"><label for="preferenceKia">Kia</label><br>
+                    <input type="radio" name="brand_preference" id="preferenceVolkswagen" value="volkswagen"><label for="preferenceVolkswagen">Volkswagen</label><br>
+                    <input type="radio" name="brand_preference" id="preferenceAnnat" value="annat"><label for="preferenceAnnat">Annat / ingen preferens</label>
+                </div>
+                <button type="button" onclick="prevPart(3)">Tillbaka</button>
+                <button type="button" onclick="nextPart(3)">Nästa</button>
+            </div>
+            
+            <div id="part5" class="formPart">
+                <h1>Komfort och stil</h1>
+                <div class="question">
+                    <h4>Stilpreferenser?</h4>
+                    <input type="radio" name="style_preference" id="styleModern" value="modern"><label for="styleModern">Modern</label><br>
+                    <input type="radio" name="style_preference" id="styleKlassisk" value="klassisk"><label for="styleKlassisk">Klassisk och tidlös</label><br>
+                    <input type="radio" name="style_preference" id="styleRobust" value="robust"><label for="styleRobust">Robust och äventyrlig</label><br>
+                    <input type="radio" name="style_preference" id="styleSportig" value="sportig"><label for="styleSportig">Sportig</label>
+                </div>
+                <div class="question">
+                    <h4>Komfortprioritet?</h4>
+                    <input type="radio" name="comfort_priority" id="comfortHög" value="hög"><label for="comfortHög">Hög (lyxkänslan)</label><br>
+                    <input type="radio" name="comfort_priority" id="comfortMedium" value="medium"><label for="comfortMedium">Medium (standardkomfort)</label><br>
+                    <input type="radio" name="comfort_priority" id="comfortLåg" value="låg"><label for="comfortLåg">Låg (funktion över form)</label>
+                </div>
+                <button type="button" onclick="prevPart(4)">Tillbaka</button>
+                <button type="button" onclick="nextPart(4)">Nästa</button>
+            </div>
+            
+            <div id="part6" class="formPart">
+                <h1>Underhåll och praktikalitet</h1>
+                <div class="question">
+                    <h4>Lågt underhåll är:</h4>
+                    <input type="radio" name="maintenance" id="maintenanceMycket" value="mycket_viktigt"><label for="maintenanceMycket">Mycket viktigt</label><br>
+                    <input type="radio" name="maintenance" id="maintenanceNågot" value="något_viktigt"><label for="maintenanceNågot">Något viktigt</label><br>
+                    <input type="radio" name="maintenance" id="maintenanceInte" value="inte_viktigt"><label for="maintenanceInte">Inte viktigt</label>
+                </div>
+                <div class="question">
+                    <h4>Garantipreferenser?</h4>
+                    <input type="radio" name="warranty" id="warrantyStandard" value="standard"><label for="warrantyStandard">Tillverkarens standardgaranti</label><br>
+                    <input type="radio" name="warranty" id="warrantyUtökad" value="utökad"><label for="warrantyUtökad">Utökad garanti</label><br>
+                    <input type="radio" name="warranty" id="warrantyIngen" value="ingen"><label for="warrantyIngen">Ingen preferens</label>
+                </div>
+                <div class="question">
+                    <h4>Bagage- / förvaringsbehov?</h4>
+                    <input type="radio" name="storage" id="storageMinimalt" value="minimalt"><label for="storageMinimalt">Minimalt</label><br>
+                    <input type="radio" name="storage" id="storageMåttligt" value="måttligt"><label for="storageMåttligt">Måttligt (familjens behov)</label><br>
+                    <input type="radio" name="storage" id="storageOmfattande" value="omfattande"><label for="storageOmfattande">Omfattande (ex sportutrustning)</label>
+                </div>
+                <button type="button" onclick="prevPart(5)">Tillbaka</button>
+                <button type="button" onclick="submitForm()">Se resultat</button>
+            </div>
+        </form>
+    </fieldset>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+
+<footer>
+    <div id="bottomnavbar" class="bottomnavbar">
+        <menu>
+            <a href="">Om oss</a>
+            <a href="">Vilkor</a>
+            <a href="">Kontakt</a>
+        </menu>
+    </div>    
+    <div id="org-info">
+        <br>
+        <p>Bilspan AB</p>
+        <p>Gångspelet 1 <br>136 56 Vega</p>
+        <p>Org nr. xxxx</p>
+    </div>
+</footer>
+</html>

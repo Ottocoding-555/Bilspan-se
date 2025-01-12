@@ -1,0 +1,275 @@
+:root {
+  --primary-gold: #D4AF37;
+  --secondary-cream: #F5F5DC;
+  --hover-burgundy: #800020;
+  --background-ivory: #FFFFF0;
+  --footer-grey: #333333; /* Dark grey for footer */
+}
+
+/* General Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-ivory);
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navigation Bar */
+.topnav {
+  background-color: var(--primary-gold);
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 70px;
+}
+
+.topnav a {
+  color: white;
+  text-align: center;
+  padding: 0 16px;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.topnav a:hover {
+  background-color: var(--hover-burgundy);
+}
+
+#logo {
+  vertical-align: middle;
+}
+
+/* Sections */
+section {
+  padding: 20px;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 70%;
+}
+
+section h3, section h4 {
+  margin-bottom: 10px;
+  color: var(--primary-gold);
+}
+
+/* Form Styling */
+fieldset {
+  border: 1px solid var(--secondary-cream);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+legend {
+  padding: 0 10px;
+  color: var(--primary-gold);
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question h4 {
+  margin-bottom: 0px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+/* Style the label to act as the new radio button */
+.question label {
+  display: inline-block;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  padding: 5px 10px;
+  background-color: var(--secondary-cream);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-width: 250px;
+}
+
+/* Hover effect for the radio labels */
+.question label:hover {
+  background-color: var(--hover-burgundy);
+  color: white;
+}
+
+/* When the radio is checked or hovered, change the label's background */
+input[type="radio"]:checked + label {
+  background-color: var(--hover-burgundy);
+  color: white;
+}
+
+button {
+  background-color: var(--primary-gold);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: var(--hover-burgundy);
+}
+
+/* Progress Bar */
+#progressBarContainer {
+  width: 100%;
+  background-color: var(--secondary-cream);
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+#progressBar {
+  width: 0;
+  height: 20px;
+  background-color: var(--primary-gold);
+  border-radius: 15px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Form Parts */
+.formPart {
+  display: none;
+}
+
+.formPart.active {
+  display: block;
+}
+
+/* Footer */
+footer {
+  background-color: var(--footer-grey);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+  position: relative; /* For pseudo-elements */
+}
+
+/* Adding a velvet-like texture effect using CSS */
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05) 0,
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  z-index: 1;
+}
+
+footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.03) 0,
+    rgba(255, 255, 255, 0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  z-index: 2;
+}
+
+/* Text and links over the texture */
+footer *, .bottomnavbar a {
+  position: relative;
+  z-index: 3; /* Ensure text and links are above the texture */
+}
+
+.bottomnavbar a {
+  color: white;
+  padding: 0 15px;
+  text-decoration: none;
+}
+
+.bottomnavbar a:hover {
+  text-decoration: underline;
+}
+
+#org-info {
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  .topnav a {
+    width: 100%;
+  }
+}
+
+/* Brand Items Layout */
+.brand-line {
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.brand-item {
+  min-width: calc(25% - 10px); /* Adjusted for max 4 items per line */
+  height: 100px; /* Assuming logo height is 100px, adjust accordingly */
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none; /* Removed border */
+}
+
+.brand-item img {
+  width: auto;
+  height: 100%; /* Image will take full height of container */
+  max-height: 80px; /* Adjust if needed to prevent overflow */
+  transition: transform 0.3s ease;
+}
+
+/* Add hover effect for images
+.brand-item img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+  */
+
+/* Ensure at least 1 item per line on larger screens */
+@media screen and (min-width: 600px) {
+  .brand-item {
+    min-width: calc(25% - 10px);
+  }
+}
